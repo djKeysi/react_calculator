@@ -34,9 +34,9 @@ export const App = () => {
 						//	valueInput.trim()
 						equally === ''
 							? (valueInput = operand1 + operator + operand2)
-							: operator === '-' && valueInput[0] !== '-'
+							: operator === '-'
 								? (valueInput = Number(operand1) - Number(operand2))
-								: operator === '+' && valueInput[0] !== '+'
+								: operator === '+'
 									? (valueInput = Number(operand1) + Number(operand2))
 									: equally !== ' '
 										? (valueInput = 'ssssss')
@@ -52,16 +52,19 @@ export const App = () => {
 					<button
 						className={styles.btn_block}
 						onClick={() => {
-							setOperator('-');
-							setEqually('');
+							//setOperator('-');
+							if (valueInput !== '') {
+								setOperator('-');
+								setEqually('');
 
-							if (equally !== '') {
-								setOperand1(valueInput);
-								setOperand2('');
-								// valueInput = operator;
-								// console.log(valueInput);
+								if (equally !== '') {
+									setOperand1(valueInput);
+									setOperand2('');
+									// valueInput = operator;
+									// console.log(valueInput);
 
-								// setvalueInput(valueInput);
+									// setvalueInput(valueInput);
+								}
 							}
 						}}
 					>
@@ -69,16 +72,18 @@ export const App = () => {
 					</button>
 					<button
 						onClick={() => {
-							setOperator('+');
-							setEqually('');
+							if (valueInput !== '') {
+								setOperator('+');
+								setEqually('');
 
-							if (equally !== '') {
-								setOperand1(valueInput);
-								setOperand2('');
-								// valueInput = operator;
-								// console.log(valueInput);
+								if (equally !== '') {
+									setOperand1(valueInput);
+									setOperand2('');
+									// valueInput = operator;
+									// console.log(valueInput);
 
-								// setvalueInput(valueInput);
+									// setvalueInput(valueInput);
+								}
 							}
 							// setOperand1('');
 							// setOperand2('');
@@ -118,22 +123,31 @@ export const App = () => {
 									// 	setOperand2(operand2);
 									// 	//setOperator('');
 									// }
-									console.log('dd', valueInput[0]);
 
+									//console.log('valueInput', valueInput[0].slice(1));
+
+									//setOperand1(s.substring(1));
+									console.log('dd', valueInput[0]);
+									//setvalueInput(valueInput[0].replace('-', ''));
+									//if (valueInput[0] !== '-') {
 									if (operator === '-' || operator === '+') {
+										//	if (operand2 === ' ') {
+
 										operand2 += num;
+										//}
 
 										setOperand2(operand2);
 
-										setvalueInput(operand2);
+										setvalueInput(valueInput);
 									} else {
 										operand1 += num;
 										setOperand1(operand1);
 
-										setvalueInput(operand1);
+										setvalueInput(valueInput);
 
 										//setOperator('');
 									}
+									//}
 
 									//	setEqually('');
 
