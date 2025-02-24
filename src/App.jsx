@@ -16,9 +16,6 @@ export const App = () => {
 
 	const nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 	const handle = (event) => {
-		//return e.target.value;
-		//setOperand1(e.target.value);
-		//setvalueInput(event.target.value);
 		console.log('sdsd', valueInput);
 	};
 
@@ -27,15 +24,19 @@ export const App = () => {
 			<div className={styles.block}>
 				<h1>Калькулятор</h1>
 				<input
-					className={styles.input}
-					disabled={false}
+					className={
+						equally !== ''
+							? styles.equally + ' ' + styles.input
+							: styles.notEqually + ' ' + styles.input
+					}
+					disabled={true}
 					value={
 						//	valueInput.trim()
 						equally === ''
 							? (valueInput = operand1 + operator + operand2)
-							: operator === '-'
+							: operator === '-' && valueInput[0] !== '-'
 								? (valueInput = Number(operand1) - Number(operand2))
-								: operator === '+'
+								: operator === '+' && valueInput[0] !== '+'
 									? (valueInput = Number(operand1) + Number(operand2))
 									: equally !== ' '
 										? (valueInput = 'ssssss')
@@ -117,13 +118,14 @@ export const App = () => {
 									// 	setOperand2(operand2);
 									// 	//setOperator('');
 									// }
+									console.log('dd', valueInput[0]);
+
 									if (operator === '-' || operator === '+') {
 										operand2 += num;
+
 										setOperand2(operand2);
 
 										setvalueInput(operand2);
-
-										//setOperator('');
 									} else {
 										operand1 += num;
 										setOperand1(operand1);

@@ -39,3 +39,13 @@ h1 {
 	font-size: 39px;
 	font-weight: bold;
 }
+
+.equally {
+	/* outline: 1px solid red; */
+	/* background-color: aqua; */
+	color: #2eff62;
+}
+
+.notEqually {
+	color: #2e9aff;
+}
