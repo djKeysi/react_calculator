@@ -9,11 +9,11 @@ export const App = () => {
 	let [operator, setOperator] = useState('');
 	const [equally, setEqually] = useState('');
 	//let [valueInput, setvalueInput] = useState('');
-	let valueInput =''
+	let valueInput = '';
 
 	const nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-	const getOperator = (oper)=>{
+	const getOperator = (oper) => {
 		if (valueInput !== '') {
 			setOperator(oper);
 			setEqually('');
@@ -23,7 +23,7 @@ export const App = () => {
 				setOperand2('');
 			}
 		}
-	}
+	};
 
 	return (
 		<div className={styles.parent}>
@@ -50,16 +50,14 @@ export const App = () => {
 					<button
 						className={styles.btn_block}
 						onClick={() => {
-							getOperator('-')
-							
+							getOperator('-');
 						}}
 					>
 						-
 					</button>
 					<button
 						onClick={() => {
-							getOperator('+')
-						
+							getOperator('+');
 						}}
 					>
 						+
@@ -78,7 +76,6 @@ export const App = () => {
 							setOperand2('');
 							setOperator('');
 							setEqually('');
-							
 						}}
 					>
 						C
@@ -87,17 +84,15 @@ export const App = () => {
 						{nums.map((num, index) => (
 							<button
 								onClick={() => {
-							if (operator === '-' || operator === '+') {
-					
+									if (operator === '-' || operator === '+') {
 										operand2 += num;
 										setOperand2(operand2);
 										//setvalueInput(valueInput);
 									} else {
 										operand1 += num;
 										setOperand1(operand1);
-										//setvalueInput(valueInput);			
+										//setvalueInput(valueInput);
 									}
-									
 								}}
 								key={index}
 							>
