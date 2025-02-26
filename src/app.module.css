@@ -49,3 +49,10 @@ h1 {
 .notEqually {
 	color: #2e9aff;
 }
+.row{
+	display: flex;
+	justify-content: space-between;
+	margin: 5px;
+
+
+}
