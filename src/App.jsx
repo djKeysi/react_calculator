@@ -45,7 +45,6 @@ export const App = () => {
 									? (valueInput = Number(operand1) + Number(operand2))
 									: 'Ошибка'
 					}
-				
 				/>
 				<div>
 					<button
