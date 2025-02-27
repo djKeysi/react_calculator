@@ -9,35 +9,25 @@ export const App_mas = () => {
 	// let [operator, setOperator] = useState('');
 
 	let [mas, setMas] = useState([]);
-	let [value, setValue] = useState(0);
+	let [value, setValue] = useState('');
 	const [buttonDisabled, setButtonDisabled] = useState(false);
 
-	const nums = [0, 1, 2, '+', '=', '-', 'C'];
+	const nums = [7, 8, 9, 4, 5, 6, 1, 2, 3, '+', '=', '-', 'C'];
 	let str = '';
-	str = value + mas.join('').replace('=', '');
 
-	const funcCalc = (label, operator, flag) => {
-		if (label === '=' && str.indexOf(operator)) {
-			value = Number(str.split(operator)[0]) + Number(str.split(operator)[1]);
-			setValue(value);
-			str = value;
-			setMas([]);
-		}
-		if (isNaN(value)) {
-			setValue('Значение должно быть числом!!!');
-		}
+	const funcCalc2 = (operator) => {
+		value = Number(str.split(operator)[0]) + Number(str.split(operator)[1]);
+		setValue(value);
+		str = Number(value);
+		console.log(typeof str);
+		setMas([]);
 	};
-
-	const funcCalc2 = (label, operator, flag) => {
-		if (label === '=' && str.indexOf(operator)) {
-			value = Number(str.split(operator)[0]) - Number(str.split(operator)[1]);
-			setValue(value);
-			str = value;
-			setMas([]);
-		}
-		if (isNaN(value)) {
-			setValue('Значение должно быть числом!!!');
-		}
+	const funcCalc = (operator) => {
+		value = Number(str.split(operator)[0]) - Number(str.split(operator)[1]);
+		setValue(value);
+		str = Number(value);
+		console.log(typeof str);
+		setMas([]);
 	};
 
 	const createButton = (label, index) => {
@@ -46,13 +36,21 @@ export const App_mas = () => {
 				disabled={label === '-' || label === '+' ? !buttonDisabled : ''}
 				onClick={() => {
 					setMas([...mas, label]);
-					// console.log(Number(label));
+
+					str = value + mas.join('');
+
+					if (label === '=') {
+						if (str.includes('-')) {
+							funcCalc('-');
+						} else if (str.includes('+')) {
+							funcCalc2('+');
+						}
+					}
 
 					setButtonDisabled(true);
-
-					// console.log(mas.join(''));
-
-					//funcCalc(label, '+');
+					if (isNaN(value)) {
+						setValue('Значение должно быть числом!!!');
+					}
 
 					if (label === 'C') {
 						setMas([]);
