@@ -14,7 +14,7 @@
 	top: 50%;
 	left: 50%;
 	margin: -125px 0 0 -125px;
-	border: 5px solid #2e9aff;
+	border: 4px solid #2e9aff;
 }
 
 .input {
@@ -49,10 +49,8 @@ h1 {
 .notEqually {
 	color: #2e9aff;
 }
-.row{
+.row {
 	display: flex;
 	justify-content: space-between;
 	margin: 5px;
-
-
 }
