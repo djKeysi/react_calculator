@@ -17,11 +17,15 @@
 	border: 5px solid #2e9aff;
 }
 
-.input {
-	width: 230px;
-	height: 20px;
-	margin: 5px;
+.divborder {
+	width: 247px;
+	height: 23px; /* Размеры */
+	background: white; /* Цвет фона */
+	outline: 1px solid #000; /* Чёрная рамка */
+	border: 1px solid #fff; /* Белая рамка */
+	border-radius: 5px; /* Радиус скругления */
 }
+
 button {
 	width: 100px;
 	margin-left: auto;
